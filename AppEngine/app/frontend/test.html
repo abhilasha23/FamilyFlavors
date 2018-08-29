@@ -1,0 +1,19 @@
+<div ng-app="myApp">
+  <div ng-controller="MainController">
+    <div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]"
+                  file="image" file-name="imageFileName" data-max-file-size="3">
+      <span>Drop Image Here</span>
+    </div>
+    <div class="image-container">
+      <img ng-src={{image}} />
+      <span class="file-name">{{imageFileName}}</span>
+    </div>
+
+  </div>
+
+  <form action>
+    <input type="file" fileread="uploadme.src">
+    <img ng-src="{{ uploadme.src }}">
+  </form>
+
+</div>

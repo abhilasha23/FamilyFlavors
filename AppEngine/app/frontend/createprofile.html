@@ -1,0 +1,77 @@
+<div data-ng-controller="CreateProfileCtrl" >
+
+    <div class="header" style="width: 100%;" >
+        <div class="container ff-navbar" >
+            <div>
+                <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="well">
+        <div class="panel panel-default" style="margin-left: 80px;margin-right: 80px;margin-top: 50px;">
+            <div class="panel-heading">Create Profile</div>
+            <div class="panel-body">
+                <form action="{{newformaction}}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fname">First Name :</label>
+                        <input type="text" required="true" name="firstname" class="form-control" id="fname"  ng-model="user.firstname">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name :</label>
+                        <input type="text" required="true" name="lastname" class="form-control" id="lname" ng-model="user.lastname"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input  type="text" required="true" name="email" class="form-control" id="email" ng-model="user.email">
+                    </div>
+                    <div class="form-group">
+                        <label for="loc">Your location :</label>
+                        <div id="loc">
+                        <span><input style="width: 30%;display: inline-block;"  type="text" required="true" name="latitude" class="form-control" id="lat" ng-model="user.lat" placeholder="Enter Latitude"></span>
+                        <span><input style="width: 30%;display: inline-block;" type="text" required="true" name="longitude" class="form-control" id="long" ng-model="user.lon" placeholder="Enter longitude"></span>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">-->
+                        <!--Upload File : <input type="file" name="hello"><br>-->
+                        <!--<input type="submit" name="submit" value="Submit">-->
+                    <!--</div>-->
+
+                         <!--Drag Drop functionality is NOT OUR CODE.Its  sourced from Codepen https://codepen.io/whusterj/pen/ijFgA-->
+                    <div class="form-group">
+                        <div class="dropzone " file-dropzone="[image/png, image/jpeg, image/gif]"
+                                      file="image" file-name="imageFileName" data-max-file-size="3" name="hello" required="true">
+                            <span><b>Drop Meal Image Here</b></span>
+                        </div>
+
+                        <div >
+                            <div class="row">
+                                <input class="col-md-4 createmeal" type="file" fileread="uploadme.src" name="hello" >
+                                <img class="col-md-4" ng-src="{{ uploadme.src }}" width="300" height="300" ng-show="uploadme.src" style="margin-left: 50px;">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                            <input type="submit" name="submit" value="Create Profile!" class="btn btn-primary">
+                    </div>
+                 </form>
+                    </div>
+
+                </form>
+
+                <div>
+                            <ng-map center="[30.285104, -97.737554]" >
+                                     <marker position=“30.2851042,-97.737554”></marker>
+                            </ng-map>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

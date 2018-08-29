@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "345712818075",
+    "firebase_url": "https://familyflavor-211417.firebaseio.com",
+    "project_id": "familyflavor-211417",
+    "storage_bucket": "familyflavor-211417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345712818075:android:a5c9bec62da7ad4c",
+        "android_client_info": {
+          "package_name": "com.familyflavors.familyflavors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345712818075-eolfjhdlj13gru0a0g1v2pftl736g9hq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.familyflavors.familyflavors",
+            "certificate_hash": "47351a065cd3067618a825e91a834a4703ec1964"
+          }
+        },
+        {
+          "client_id": "345712818075-j2o1tal1enqq7r99noice0esuj1veods.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.familyflavors.familyflavors",
+            "certificate_hash": "c903fa86a24fbff456c36e3ce952a9cfbfe7e8ed"
+          }
+        },
+        {
+          "client_id": "345712818075-s6i38mpusrnmvs4b5bsd7cd025rtrhas.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8rkF9N_R3QHEvVxv6nChBKppek2vXgoA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345712818075-d4vb6lrri7t4kur6d0fol1c71u4idt14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

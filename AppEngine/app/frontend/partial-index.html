@@ -1,0 +1,83 @@
+<div ui-view="" data-ng-controller="FamilyFlavorCtrl">
+<div class="header" style="width: 100%;">
+    <div class="container ff-navbar" >
+        <div>
+            <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref=".ordernow">ORDER NOW</a></li>
+                <li><a ui-sref="mobapp">THE APP</a></li>
+                <li ng-show="pageflag=='createprofile'"><a ui-sref=createprofile style="border: 1px solid;">HOME CHEFS</a></li>
+                <li ng-show="pageflag=='homechefs'"><a ui-sref=homechefs style="border: 1px solid;">HOME CHEFS</a></li>
+                <li><a ui-sref="contact">CONTACT</a></li>
+                <li ng-if="!isAuthenticatedFlag"><a href={{url}}>SIGN IN</a></li>
+                <li ng-if="isAuthenticatedFlag"><a href={{url}}>SIGN OUT</a></li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class=" ff-caraousel-container">
+
+
+    <div class="row">
+    <!--Static Images for now-->
+    <!-- TODO: Will Convert this to a Carousel later-->
+
+    <div class="col-md-3 foodcarousel" style="">
+        <img class="img-responsive" src="images/Carousel-Image1.jpg" alt="" style="position: absolute;height: 250px;width: 100%;">
+
+    </div>
+    <div class="col-md-3 foodcarousel" style="">
+        <img class="img-responsive" src="images/Carousel-Image2.jpg" alt="" style="position: absolute;height: 250px;width: 100%;">
+    </div>
+    <div class="col-md-3 foodcarousel" style="">
+        <img class="img-responsive" src="images/Carousel-Image3.jpg" alt="" style="position: absolute;height: 250px;width: 100%;">
+    </div>
+    </div>
+    <div class="row centered">
+        <a href="" class="typewrite centered" data-period="2000"  data-type='[ "No time to cook?", "#HealthGoals", "Craving home cooked food?", "#EatFresh" ]'>
+            <span class="wrap"></span>
+        </a>
+    </div>
+
+</div>
+<div class="container" style="padding-top: 20px;padding-left: 100px;">
+    <div>
+        <span class="producttext">Experience the combination of delicious,healthy and home-cooked meals</span>
+    </div>
+
+</div>
+<div class="container" style="padding-top: 30px;">
+    <div>
+        <span class="producttext" style="font-size: 19px; color: #333;font-weight: 500;"> FamilyFlavours is a unique platform that brings together food-hungry souls with talented home chefs who love to feed people. </span>
+    </div>
+</div>
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-3" ><button type="button" class="btn btn-ff" ui-sref=".ordernow"> ORDER NOW</button></div>
+    <div class="col-md-3" ><button type="button" class="btn btn-ff" ui-sref="whoarehomechefs"> WHO ARE HOME CHEFs?</button></div>
+    <div class="col-md-3"></div>
+
+</div>
+    <div>
+        <!--<ng-map center="[30.285104, -97.737554]" >-->
+            <!--<marker position=“[30.2851042,-97.737554]” />-->
+        <!--</ng-map>-->
+        <!--<div map-lazy-load="https://maps.google.com/maps/api/js">-->
+                <!--<ng-map center="41,-87" zoom="3"></ng-map>-->
+        <!--</div>-->
+        <!---->
+        <!--<div map-lazy-load="https://maps.google.com/maps/api/js"-->
+              <!--map-lazy-load-params="{{googleMapsUrl}}">-->
+              <!--<ng-map center="30.285104, -97.737554" zoom="15"></ng-map>-->
+        <!--</div>-->
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "familyflavors",
+  "version": "0.0.0",
+  "description": "Family Flavors",
+  "main": "server.js",
+  "author": "Abhilasha",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+
+  }
+}

@@ -1,0 +1,153 @@
+<div ui-view="" data-ng-controller="HomeChefCtrl" >
+<div class="header" style="width: 100%;" >
+    <div class="container ff-navbar" >
+        <div>
+            <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref=".createmeal" ng-click="getCreateMeal()">CREATE MEAL</a></li>
+                <li><a style="color:grey;">REVIEWS</a></li>
+                <li><a style="color:grey;">SEE TRENDS</a></li>
+                <li><a ui-sref="contact">CONTACT US</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="well" style="width: 100%;">
+
+    <div class="row">
+        <div class="col-md-4" id="user-info">
+            <div style="display: inline-block;margin-left: 10px;margin-right: 10px;">
+                <img ng-src="{{homechef.profileimage}}" width="100" height="100" alt="User" class="image"/>
+
+            </div>
+            <div style="display: inline-block;margin-left: 20px;margin-right: 20px;">
+                <p><b>Welcome Chef , {{homechef.firstname}}  {{homechef.lastname}}</b></p>
+                <p>email : {{homechef.email}}</p>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div style=""><button class="btn btn-danger" style="font-size: 10px;float:right;" href="#subscribedPopup" data-toggle="modal" target="_self">SUBSCRIBED TO </button></div>
+        </div>
+        <div class="col-md-4">
+
+            <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+
+        </div>
+    </div>
+</div>
+
+
+        <div class="well" style="width: 100%;">
+
+                <div class="row" style="padding-left: 100px;">
+
+                    <div ng-repeat="meal in usermeals" class="panel col-md-3" style="cursor: pointer;margin-left: 40px;margin-right: 10px;"  ng-click="mealspopup(meal)" href="#mealsPopup" data-toggle="modal" target="_self" >
+                        <!--ng-click="mealspopup(meal)" href="#mealsPopup" data-toggle="modal" target="_self"-->
+                        <div class="panel-body" style="padding-left: 45px;">
+                            <div>
+                                <img ng-src="{{meal.meal_image}}" width="200" height="200" >
+                            </div>
+                            <div>
+                                <b>{{meal.mealname}} | {{meal.meal_theme}}</b>
+                            </div>
+                            <div>
+                                {{meal.meal_tag.toString()}}
+                            </div>
+                            <div>
+                                Quantity : {{meal.mealq}}   |  $ {{meal.mealp}} per meal
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+         </div>
+
+    <!--Modal code starting-->
+        <div id="modalContent">
+               <div class="modal fade" id="mealsPopup" style="width: auto;top:77px;" >
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>
+                        <div>
+                            <b>{{mealpopupdata.mealname}}</b>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img ng-src="{{mealpopupdata.meal_image}}" width="100" height="100">
+                            </div>
+                            <div class="col-md-9">
+
+                                <div>
+                                    <b>Description :</b> {{mealpopupdata.mealdes}}
+                                </div>
+                                <div>
+                                    <b>Theme :</b> {{mealpopupdata.meal_theme}}
+                                </div>
+                                <div>
+                                    <b>Tags :</b> <span>{{mealpopupdata.meal_tag.toString()}}</span>
+                                </div>
+                                <div>
+                                    <b>Quantity  :</b> <span>{{mealpopupdata.mealq}}</span>
+                                </div>
+                                <div>
+                                    <b>Price  :</b> <span>$ {{mealpopupdata.mealp}} per meal</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+            <div class="modal fade" id="subscribedPopup" style="width: auto;top:77px;" >
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>
+                        <div>
+                            <b>YOU ARE SUBSCRIBED TO:</b>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" ng-repeat="data in homechef.subscribed_to">
+
+                            <div class="col-md-8">
+
+                                <b>{{data}}</b>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+

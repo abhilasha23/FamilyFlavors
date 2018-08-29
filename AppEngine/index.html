@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+
+    <!-- [START css]  -->
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css">
+    <!-- [END css] -->
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+      blockquote {
+        margin-bottom: 10px;
+        border-left-color: #bbb;
+      }
+      form {
+        margin-top: 10px;
+      }
+      .form-signin input[type="text"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+      .row {
+        margin-left: 0px;
+        margin-top: 10px;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- [START Navigation Bar ]   -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">HomeChef</a>
+           <div class="nav-collapse collapse pull-left">
+            <a href="/HomeChefs" class="btn btn-primary">Home Chefs</a>
+            <a href="" class="btn btn-primary">Themes</a> <!-- Breakfast, Lunch, Dinner -->
+            <a href="" class="btn btn-primary">Tags</a> <!-- display tags, clickable? -->
+          </div>
+          <div class="nav-collapse collapse pull-right">
+            <a href="{{ url|safe }}" class="btn">{{ url_linktext }}</a>
+            {% if url_linktext == "Logout" %}
+            <a href="{{ url_profile|safe }}" class="btn">My Profile</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-- [END Navigation Bar ]   -->
+
+    <!-- [START Body]   -->
+    <div class="container">
+      <!-- [START greetings] -->
+      {% for greeting in greetings %}
+      <div class="row">
+        {% if greeting.author %}
+          <b>{{ greeting.author.email }}
+            {% if user and user.user_id() == greeting.author.identity %}
+              (You)
+            {% endif %}
+          </b> wrote:
+        {% else %}
+          An anonymous person wrote:
+        {% endif %}
+        <blockquote>{{ greeting.content }}</blockquote>
+      </div>
+      {% endfor %}
+      <!-- [END greetings] -->
+      {% if url_linktext == "Logout" %}
+            <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
+        	<div><textarea name="content" class="input-block-level" rows="3"></textarea></div>
+       		 <div><input type="submit" class="btn btn-large btn-primary" value="Sign Guestbook"></div>
+     		 </form>
+      {% endif %}
+
+
+      <hr>
+
+      <form>Guestbook name:
+        <input value="{{ guestbook_name }}" name="guestbook_name">
+        <input type="submit" value="switch">
+      </form>
+
+      <a href="{{ url|safe }}">{{ url_linktext }}</a>
+    </div>
+    <div>
+      <div>
+        ...................................TEST AREA...........................................
+        {{testvar}}
+
+    </div>
+  <!-- [End Body]   -->
+  </body>
+</html>
+{% endautoescape %}

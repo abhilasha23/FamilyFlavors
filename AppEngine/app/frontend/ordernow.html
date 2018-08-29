@@ -1,0 +1,187 @@
+<div data-ng-controller="OrderNowCtrl">
+<div class="well">
+    <div class="header" style="width: 100%;">
+        <div class="container ff-navbar" >
+                <div>
+                    <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="ordernow">ORDER NOW</a></li>
+                        <li><a>THE APP</a></li>
+                        <li ng-show="pageflag=='createprofile'"><a ui-sref=createprofile style="border: 1px solid;">HOME CHEFS</a></li>
+                        <li ng-show="pageflag=='homechefs'"><a ui-sref=homechefs style="border: 1px solid;">HOME CHEFS</a></li>
+                        <li><a ui-sref="contact">CONTACT</a></li>
+                        <li ng-if="!isAuthenticatedFlag"><a href={{url}}>SIGN IN</a></li>
+                        <li ng-if="isAuthenticatedFlag"><a href={{url}}>SIGN OUT</a></li>
+
+
+
+                    </ul>
+                </div>
+
+        </div>
+
+      </div>
+
+
+
+</div>
+    <div>
+        <div class="row">
+
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div style="display: inline-block;">
+            <!--<input id="keywordInputBar" type="text" ng-model="searchKeyword2" style="width: 510px;height:34px;display: inline-block;margin-left: 88px; " class="multiselect form-control" placeholder='Search for meals or tags or apply filter from themes'-->
+                               <!--uib-typeahead="value as value.word for value in frequentwords | filter:{word:$viewValue}"-->
+                               <!--typeahead-on-select='onSelect($item, $model, $label)'  ng-change="onchange(searchKeyword2)"/>-->
+                <input id="keywordInputBar" type="text" ng-model="searchTag" style="    width: 700px;height: 44px; "
+                     uib-typeahead="tag as tag for tag in tags" typeahead-on-select='onSelect($item, $model, $label)' class="multiselect form-control"
+                       placeholder='Search for tags or apply filter from themes' ng-change="onchange(searchTag)"/>
+                </div>
+                <div  style="display: inline-block;">
+                            <!--<button class="btn btn-primary" type="button" style="" ng-click="icpSearch(searchKeyword2,1,true)">-->
+                        <button id="ordersearch" class="btn btn-primary" type="button" style="" ng-click="searchMeals()">
+                            <span>SEARCH</span>
+                             </button>
+                </div>
+
+            </div>
+            <div class="col-md-2"></div>
+
+
+        </div>
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-2" style="margin-left: 10px;overflow:scroll;">
+                <div>
+                <b>FILTER BY THEME:</b>
+                <div class="checkbox">
+                      <label><input type="checkbox" name="theme" value="Breakfast" ng-click="selectThemeFilter('Breakfast')">Breakfast</label>
+                </div>
+                <div class="checkbox">
+                      <label><input type="checkbox" name="theme" value="Lunch" ng-click="selectThemeFilter('Lunch')">Lunch</label>
+                </div>
+                <div class="checkbox ">
+                      <label><input type="checkbox" name="theme"  value="Dinner" ng-click="selectThemeFilter('Dinner')">Dinner</label>
+                </div>
+                <div class="checkbox ">
+                      <label><input type="checkbox" name="theme"  value="Others" ng-click="selectThemeFilter('Other')">Other</label>
+                </div>
+                </div>
+                <div style="margin-top: 30px;border-top: 1px solid darkgrey;padding-top: 10px;">
+                   <b>HOMECHEFS: </b>
+                <div ng-repeat="chef in homechefslist" class="row" style="margin-top: 20px;">
+                    <div class="col-md-3" ng-click="chefprofilepopup(chef)" href="#chefProfilePopup" data-toggle="modal" target="_self">
+                        <img ng-src="{{chef.chef_image}}" width="50" height="50">
+                    </div>
+                    <div class="col-md-9">
+                        <div> {{chef.chef_firstname}} {{chef.chef_lastname}}</div>
+                        <div> <button id="" class="btn btn-danger" ng-show="(homechef.subscribed_to.indexOf(chef.chef_email) == -1)" ng-click="subscribeToChef(chef)" style="font-size: 10px;">SUBSCRIBE</button></div>
+                        <button id="chefsubscribed" class="btn btn-primary" ng-show="(homechef.subscribed_to.indexOf(chef.chef_email) > -1)" style="font-size: 10px;background-color: green;border-color: green; ">SUBSCRIBED</button>
+                    </div>
+
+                </div>
+                 </div>
+                <div style="margin-top: 30px;border-top: 1px solid darkgrey;padding-top: 10px;">
+                     <div><b>FILTER BY LOCATION</b></div>
+
+                    <div style="margin-top:10px;" class="checkbox">
+                    <label><input type="checkbox" name="loc" value="30.2851042,-97.737554" ng-click="selectLocFilter('30.2851042,-97.737554')">30.2851042,-97.737554</label>
+
+                </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-5">
+                <div >
+                    {{mealresultmsg}}
+                </div>
+                <div ng-repeat="meal in mealsresult" class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                    <div class="col-md-3">
+                        <img ng-src="{{meal.meal_image}}" width="150" height="150">
+                    </div>
+                    <div class="col-md-8">
+                        <div>
+                            Name : <b>{{meal.mealname}}</b>
+                        </div>
+                        <div>
+                            Description : {{meal.mealdes}}
+                        </div>
+                        <div>
+                            Theme : {{meal.meal_theme}}
+                        </div>
+                        <div>
+                            Tags : {{meal.meal_tag.toString()}}
+                        </div>
+                        <div>
+                            By Chef  : <b>{{meal.chef_firstname}} {{meal.chef_lastname}}</b>
+                        </div>
+                        <div>
+                            Location : [ {{meal.meal_latitude}} , {{meal.meal_longitude}} ]
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4" style="margin-left: 10px;float:right;width: 40%;" ng-show="mealsresult.length>0">
+
+
+                            <ng-map style="height:500px;" center="[30.285104, -97.737554]" >
+                                <!--<marker position=“30.2851042,-97.737554”></marker>-->
+                                <marker ng-repeat="meal in mealsresult" position="{{meal.meal_latitude}},{{meal.meal_longitude}}"></marker>
+                                <!--<marker position=“30.2862222,-97.7415767”></marker>-->
+                            </ng-map>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- - - - - - Modal Code - - - - -->
+    <div>
+            <div id="modalContent">
+               <div class="modal fade" id="chefProfilePopup" style="width: auto;top:77px;" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>
+                        <div>
+                            <b> Chef {{chefpopupdata.chef_firstname}} {{chefpopupdata.chef_lastname}} </b>
+
+                        </div>
+                        <div>
+                            <span></span>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img ng-src="{{chefpopupdata.chef_image}}" width="150" height="150">
+                            </div>
+                            <div class="col-md-8" style="overflow:scroll;">
+                                <div style="margin-bottom: 20px;"># of Meals offered at present : <b>{{chefpopupdata.noOfMeals}}</b></div>
+
+                                <div ng-repeat="meal in chefpopupdata.meals">
+                                    <div><b>{{meal.mealname}} | {{meal.meal_theme}}</b></div>
+                                    <div style="font-size: 13px;">  {{meal.meal_tag.toString()}}</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        </div>
+        </div>
+</div>

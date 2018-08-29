@@ -1,0 +1,63 @@
+<div class="header" style="width: 100%;">
+    <div class="container ff-navbar" >
+        <div>
+            <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref=".ordernow">ORDER NOW</a></li>
+                <li><a>THE APP</a></li>
+                <li ng-show="pageflag=='createprofile'"><a ui-sref=createprofile style="border: 1px solid;">HOME CHEFS</a></li>
+                <li ng-show="pageflag=='homechefs'"><a ui-sref=homechefs style="border: 1px solid;">HOME CHEFS</a></li>
+                <!--<li><a ui-sref="contact">CONTACT</a></li>-->
+                <li ng-if="!isAuthenticatedFlag"><a href={{url}}>SIGN IN</a></li>
+                <li ng-if="isAuthenticatedFlag"><a href={{url}}>SIGN OUT</a></li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <center>
+    <div class="producttext" style="font-size: 19px; color: #333;font-weight: 500;">
+        MEET THE TEAM
+    </div>
+
+    <div class="row" style="margin-top: 50px;margin-left: 20px;">
+        <div class="col-md-2">
+         <img src="/images/Hani.jpg" width="120" height="120">
+        </div>
+        <div class="col-md-7" style="font-size: 15px; color: #333;font-weight: 500;padding-top: 30px;">
+          Hani Noueilaty is a native Austinite who enjoys traveling, programming, and hiking
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;margin-left: 20px;">
+        <div class="col-md-2">
+         <img src="/images/Claire.jpeg" width="120" height="120">
+        </div>
+        <div class="col-md-7" style="font-size: 15px; color: #333;font-weight: 500;padding-top: 30px;">
+          Bingqing (Claire) is an extrovert person who enjoys programming,swimming and cooking.
+        </div>
+
+
+    </div>
+    <div class="row" style="margin-top: 50px;margin-left: 20px;">
+        <div class="col-md-2">
+         <img src="/images/Jackson.jpg" width="120" height="120">
+        </div>
+        <div class="col-md-7" style="font-size: 15px; color: #333;font-weight: 500;padding-top: 30px;">
+          Jackson Ross is a bridge student at MSITM who loves coding,traveling and trying out new cuisines.
+        </div>
+
+    </div>
+    <div class="row" style="margin-top: 50px;margin-left: 20px;">
+        <div class="col-md-2">
+         <img src="/images/Abhilasha1.jpeg" width="120" height="120">
+        </div>
+        <div class="col-md-7" style="font-size: 15px; color: #333;font-weight: 500;padding-top: 30px;">
+          Abhilasha Kanitkar is from  India who loves to cook different cuisines and loves to sing.
+        </div>
+  </div>
+
+</center>
+</div>

@@ -1,0 +1,37 @@
+<div class="header" style="width: 100%;">
+    <div class="container ff-navbar" >
+        <div>
+            <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref=".ordernow">ORDER NOW</a></li>
+                <li><a>THE APP</a></li>
+                <li ng-show="pageflag=='createprofile'"><a ui-sref=createprofile style="border: 1px solid;">HOME CHEFS</a></li>
+                <li ng-show="pageflag=='homechefs'"><a ui-sref=homechefs style="border: 1px solid;">HOME CHEFS</a></li>
+                <li><a ui-sref="contact">CONTACT</a></li>
+                <li ng-if="!isAuthenticatedFlag"><a href={{url}}>SIGN IN</a></li>
+                <li ng-if="isAuthenticatedFlag"><a href={{url}}>SIGN OUT</a></li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="well" style="margin-top: 50px;margin-left: 20px;margin-right: 20px;">
+
+    <div>
+        <span class="producttext" style="font-size: 19px; color: #333;font-weight: 500;">
+            <p>At FamilyFlavours, HomeChefs are the talented home cooks who want to showcase their talent to the community, all the while being able to cook for people who are looking for simple homecooked meals.</p>
+            <p>You create a profile with us and after your quality checks are in place, you can go ahead and create and offer meals.</p>
+            <p>Key Features:</p>
+            <p>1. Cook at the comfort of your home</p>
+            <p>2. Commit to quantity of meals that suits you.</p>
+            <p>3. Meal Delivery is hassle free and is handled by our well-trained staff.</p>
+            <p>4. Seamless payment system </p>
+
+            <p>Be a HomeChef TODAY!!!!!</p>
+        </span>
+    </div>
+
+
+</div>

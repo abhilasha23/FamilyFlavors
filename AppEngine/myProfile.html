@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+
+    <!-- [START css]  -->
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css">
+    <!-- [END css] -->
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+      blockquote {
+        margin-bottom: 10px;
+        border-left-color: #bbb;
+      }
+      form {
+        margin-top: 10px;
+      }
+      .form-signin input[type="text"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+      .row {
+        margin-left: 0px;
+        margin-top: 10px;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- [START Navigation Bar ]   -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">HomeChef</a>
+           <div class="nav-collapse collapse pull-left"> 
+            <a href="" class="btn btn-primary">Home Chefs</a>
+            <a href="" class="btn btn-primary">Themes</a> <!-- Breakfast, Lunch, Dinner -->
+            <a href="" class="btn btn-primary">Tags</a> <!-- display tags, clickable? -->
+          </div>
+          <div class="nav-collapse collapse pull-right">
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-- [END Navigation Bar ]   -->
+          <div><center>
+              <div>
+                  <h4>{{homechef.email}}'s Profile{{homechef.lastname}}</h4>
+                  <hr />
+                  <dl class="dl-horizontal">
+                      <dt>
+                          Email: 
+                      </dt>
+                      <dd>
+                          {{homechef.email}}
+                      </dd>
+
+                      <dt>
+                          First Name: 
+                      </dt>
+                      <dd>
+                          {{homechef.firstname}}
+                      </dd>
+
+                      <dt>
+                          Last Name: 
+                      </dt>
+                      <dd>
+                          {{homechef.lastname}}
+                      </dd>
+
+                      <dt>
+                          Phone Number: 
+                      </dt>
+                      <dd>
+                          {{homechef.phone}}
+                      </dd>
+
+                      <dt>
+                          Geolocation: 
+                      </dt>
+                      <dd>
+                          {{homechef.firstname}}
+                      </dd>
+
+                      <dt>
+                          Rating: 
+                      </dt>
+                      <dd>
+                          {{homechef.rating}}/5
+                      </dd>
+                  </dl>
+              </div>
+          </center></div>
+    <!-- [START Body]   -->
+  <!-- [End Body]   -->
+  </body>
+</html>
+{% endautoescape %}

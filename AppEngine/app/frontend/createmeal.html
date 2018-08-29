@@ -1,0 +1,87 @@
+<div >
+<div class="header" style="width: 100%;" >
+    <div class="container ff-navbar" >
+        <div>
+            <a class="navbar-brand" href="index.html">FamilyFlavors</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><img ng-src="{{homechef.profileimage}}" width="100" height="100" alt="User" class="image"/></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+        <div class="panel panel-default" style="margin-left: 80px;margin-right: 80px;margin-top: 50px;">
+            <div class="panel-heading"><b>Create a New Meal</b></div>
+            <div class="panel-body">
+                <!--<form action="/rest/CreateProfile" method="post">-->
+                <form action="{{mealformaction}}" method="post" enctype="multipart/form-data">
+                    <div class="form-group" style="display:none;">
+                        <label for="email">Email</label>
+                        <input required="true" name="email" type="text" class="form-control" id="email" value="{{useremail}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mealname">Meal Name</label>
+                        <input required="true" name="title" type="text" class="form-control" id="mealname" placeholder="Ex: Chicken Curry combo" ng-model="mealname">
+                    </div>
+                    <div class="form-group">
+                        <label for="mealdes">Meal Description:</label>
+                        <textarea required="true" name="description" class="form-control" id="mealdes" ng-model="mealdes" rows="5" placeholder="Enter detailed description about your meal"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="mealq">Quantity:</label>
+                        <input name="quantity" type="text" class="form-control" id="mealq" ng-model="mealq">
+                    </div>
+                    <div class="form-group">
+                        <label for="mealp">Price:</label>
+                        <input required="true" name="price" type="text" class="form-control" id="mealp" ng-model="mealp">
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="mealtheme">Theme:</label>-->
+                        <!--<input name="theme" type="text" class="form-control" id="mealtheme" ng-model="mealtheme">-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <label required="true" style="margin-right: 20px;">Meal Theme:</label>
+
+                            <label class="radio-inline"><input type="radio" name="theme" value="Breakfast" checked>Breakfast</label>
+                            <label class="radio-inline"><input type="radio" name="theme" value="Lunch">Lunch</label>
+                            <label class="radio-inline"><input type="radio" name="theme" value="Dinner">Dinner</label>
+                            <label class="radio-inline"><input type="radio" name="theme" value="Other">Other</label>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mealtags">Tags:</label>
+                        <input name="tags" type="text" class="form-control" id="mealtags" ng-model="mealtags" required="true">
+                    </div>
+                    <!--Drag Drop functionality is NOT OUR CODE.Its  sourced from Codepen https://codepen.io/whusterj/pen/ijFgA-->
+                    <div class="form-group">
+                        <div class="dropzone " file-dropzone="[image/png, image/jpeg, image/gif]"
+                                      file="image" file-name="imageFileName" data-max-file-size="3" name="mealpic">
+                            <span><b>Drop Meal Image Here</b></span>
+                        </div>
+
+                        <div >
+                            <div class="row">
+                                <input class="col-md-4 createmeal" type="file" fileread="uploadme.src" name="mealpic" >
+                                <img class="col-md-4" ng-src="{{ uploadme.src }}" width="300" height="300" ng-show="uploadme.src" style="margin-left: 50px;">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                            <input type="submit" name="submit" value="Create Meal!" class="btn btn-primary">
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+</div>

@@ -1,0 +1,4 @@
+cron:
+#- description: "SendSubscriptionEmails"
+#  url: /rest/SendSubscriptionEmails
+#  schedule:

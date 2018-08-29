@@ -1,0 +1,11 @@
+{
+  "name": "familyflavors",
+  "version": "0.0.0",
+  "description": "Family Flavors",
+  "main": "server.js",
+  "author": "Abhilasha",
+  "dependencies": {
+
+  },
+  "devDependencies": {}
+}

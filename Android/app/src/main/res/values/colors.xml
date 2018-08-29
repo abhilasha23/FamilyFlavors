@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--color name="colorPrimary">#3F51B5</color-->
+    <color name="colorPrimary">#B1332E</color>
+    <!--color name="colorPrimaryDark">#303F9F</color-->
+    <color name="colorPrimaryDark">#800000</color>
+    <!--color name="colorAccent">#FF4081</color-->
+    <color name="colorAccent">#FFE6B3</color>
+    <color name="backgroundColor">#FFE6B3</color>
+    <color name="colorBreakfast">#663399</color>
+    <color name="colorLunch">#4183D7</color>
+    <color name="colorDinner">#D2527F</color>
+    <color name="colorOther">#F4D03F</color>
+</resources>
